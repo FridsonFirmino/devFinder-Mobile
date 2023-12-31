@@ -23,10 +23,13 @@ export const Header = styled.View`
 
 export const InputGroup = styled.View`
     width: 90%;
-    height: 25%;
+    height: 27%;
     margin: 5%;
     border-radius: 15px;
     background-color: ${props => props.theme.bg_Secundary};
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 `
 
 export const InputUsername = styled.TextInput`
