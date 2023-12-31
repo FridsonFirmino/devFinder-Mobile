@@ -1,20 +1,35 @@
+import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator } from 'react-native';
+import { ThemeProvider } from 'styled-components'
+
+import { colors } from './src/uteis/colors'
+import Home from './src/pages/home'
+
+import {
+  useFonts,
+  SpaceMono_400Regular,
+  SpaceMono_700Bold,
+} from '@expo-google-fonts/space-mono';
+
 
 export default function App() {
+
+  const [LoadingFonts] = useFonts({
+    SpaceMono_400Regular,
+    SpaceMono_700Bold,
+  })
+
+  if (!LoadingFonts){
+    return (
+      <ActivityIndicator size={"large"} color='#5700AF'/>
+    )
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={colors}>
+      <Home/>
+      <StatusBar style="light" />
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
