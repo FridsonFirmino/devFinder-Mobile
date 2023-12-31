@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 
 export const Container = styled.SafeAreaView`
-    width: 100%;
-    height: 100%;
+    flex: 1;
     background-color: ${props => props.theme.bg_Primary};
     align-items: center;
 `
@@ -21,7 +20,7 @@ export const Header = styled.View`
     background-color: ${props => props.theme.bg_Primary};
 `
 
-export const InputGroup = styled.View`
+export const InputGroup = styled.KeyboardAvoidingView`
     width: 90%;
     height: 27%;
     margin: 5%;
