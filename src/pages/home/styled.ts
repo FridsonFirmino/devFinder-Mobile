@@ -35,6 +35,7 @@ export const InputUsername = styled.TextInput`
     background-color: ${props => props.theme.bg_Secundary};
     font-size: 13px;
     font-family: SpaceMono_400Regular;
+    margin-left: 15px;
 `
 
 export const Body = styled.View`

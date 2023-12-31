@@ -7,6 +7,7 @@ import {
   InputGroup, 
   InputUsername} from './styled';
 import { colors } from '../../uteis/colors';
+import  SearchButton  from '../../components/searchButton';
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
             placeholderTextColor={colors.text_White}
             inputMode='search'
           />
+          <SearchButton/>
         </InputGroup>
       </Header>
 
