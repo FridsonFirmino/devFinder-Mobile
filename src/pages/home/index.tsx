@@ -1,11 +1,31 @@
 import React from 'react'
-import { Container, Name } from './styled';
+import { 
+  Container, 
+  NameApp, 
+  Header, 
+  Body, 
+  InputGroup, 
+  InputUsername} from './styled';
+import { colors } from '../../uteis/colors';
 
 
 export default function Home() {
   return (
     <Container>
-      <Name>devFinder</Name>
+      <Header>
+        <NameApp>devFinder</NameApp>
+        <InputGroup>
+          <InputUsername
+            placeholder='Search GitHub username…'
+            placeholderTextColor={colors.text_White}
+            inputMode='search'
+          />
+        </InputGroup>
+      </Header>
+
+      <Body>
+
+      </Body>
     </Container>
     
   )
