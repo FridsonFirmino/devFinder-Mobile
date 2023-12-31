@@ -7,7 +7,7 @@ import {
   InputGroup, 
   InputUsername} from './styled';
 import { colors } from '../../uteis/colors';
-import  SearchButton  from '../../components/searchButton';
+import  SearchButton  from '../../components/SearchButton';
 
 
 export default function Home() {
