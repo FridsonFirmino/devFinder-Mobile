@@ -1,38 +1,49 @@
-import React from 'react'
-import { Platform } from 'react-native'
+import React, { useState } from 'react'
 import { 
   Container, 
   NameApp, 
   Header, 
   Body, 
   InputGroup, 
-  InputUsername} from './styled';
+  InputUsernameSearch,
+  BodySection
+} from './styled';
 
 import { colors } from '../../uteis/colors';
 import  SearchButton  from '../../components/SearchButton';
 import { Info_Component } from '../../components/Info_Component';
 
-
 export default function Home() {
+  const [inputSearch, setInputSearch] = useState('')
+
+  function getUserName(tesx: String){
+    console.log(tesx)
+    setInputSearch('')
+  }
+
   return (
     <Container>
       <Header>
         <NameApp>devFinder</NameApp>
-        <InputGroup
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        >
-          <InputUsername
+        <InputGroup>
+          <InputUsernameSearch
             placeholder='Search GitHub username…'
             placeholderTextColor={colors.text_White}
+            value={inputSearch}
+            onChangeText={(e) => setInputSearch(e)}
           />
-          <SearchButton/>
+          <SearchButton 
+            onPress={() => getUserName(inputSearch)}
+          />
         </InputGroup>
       </Header>
 
       <Body>
-        <Info_Component
-          infoImage='Let’s find a Dev!'
-        />
+        <BodySection>
+          <Info_Component
+            infoImage='Let’s find a Dev!'
+          />
+        </BodySection>
       </Body>
     </Container>
     
