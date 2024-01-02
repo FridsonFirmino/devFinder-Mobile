@@ -49,7 +49,7 @@ export const JoinedData = styled.Text`
 
 export const BioArea = styled.View`
     width: 90%;
-    height: 20%;
+    height: 18%;
     background-color: ${props => props.theme.bg_Secundary};
     align-self: center;
     margin-top: 10px;
@@ -78,7 +78,6 @@ export const QtdInformationArea = styled.View`
 export const LinksArea = styled.View`
     width: 90%;
     height: 35%;
-    background-color: ${props => props.theme.bg_Primary};
     align-self: center;
     margin-top: 10px;
 `;
