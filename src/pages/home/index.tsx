@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
+import axios from 'axios';
 import { 
   Container, 
   NameApp, 
@@ -14,17 +15,16 @@ import {
 import { colors } from '../../uteis/colors';
 import { API_GitHub } from '../../uteis/api';
 import  SearchButton  from '../../components/SearchButton';
-import { Info_Component } from '../../components/Info_Component';
-import axios from 'axios';
+import { ResultComponent } from '../../components/Atomic_ResultComponent/ResultComponent';
 
 export default function Home() {
   const [inputSearch, setInputSearch] = useState('')
 
-  async function getUserName(tesx: String){
-    console.log(tesx)
+  async function getUserName(user: String){
+    console.log(user)
     setInputSearch('')
 
-    await axios.get(API_GitHub+''+tesx)
+    await axios.get(API_GitHub+''+user)
     .then(response => {
       if (response.data) {
         console.log(response.data);
@@ -56,9 +56,7 @@ export default function Home() {
       </Header>
       <Body>
         <BodySection>
-          <Info_Component
-            infoImage='Let’s find a Dev!'
-          />
+          <ResultComponent/>
         </BodySection>
       </Body>
     </Container>

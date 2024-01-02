@@ -9,7 +9,7 @@ interface props{
     infoImage: string
 }
 
-export function Info_Component({ infoImage }:props) {
+export default function Info_Component({ infoImage }:props) {
   return (
     <Container>
         <Image
