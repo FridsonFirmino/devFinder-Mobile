@@ -32,14 +32,21 @@ export const InputGroup = styled.View`
     justify-content: center;
     align-items: center;
 `
+export const IconView = styled.View`
+    width: 25px;
+    height: 25px;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    background-color: ${props => props.theme.bg_Secundary};
+`
 
 export const InputUsernameSearch = styled.TextInput`
-    width: 70%;
+    width: 65%;
     height: 100%;
     background-color: ${props => props.theme.bg_Secundary};
     font-size: 13px;
     font-family: SpaceMono_400Regular;
-    margin-left: 15px;
     color: ${props => props.theme.text_White};;
 `
 

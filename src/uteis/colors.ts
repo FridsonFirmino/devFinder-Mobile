@@ -4,4 +4,5 @@ export const colors = {
     text_White: "#FFFFFF",
     text_Blue: "#0079FF",
     btn_Primary: "#0079FF", 
+    icon_Search_Blue: "#0079FF",
 }

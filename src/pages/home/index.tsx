@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { 
   Container, 
   NameApp, 
@@ -6,19 +7,32 @@ import {
   Body, 
   InputGroup, 
   InputUsernameSearch,
-  BodySection
+  BodySection,
+  IconView
 } from './styled';
 
 import { colors } from '../../uteis/colors';
+import { API_GitHub } from '../../uteis/api';
 import  SearchButton  from '../../components/SearchButton';
 import { Info_Component } from '../../components/Info_Component';
+import axios from 'axios';
 
 export default function Home() {
   const [inputSearch, setInputSearch] = useState('')
 
-  function getUserName(tesx: String){
+  async function getUserName(tesx: String){
     console.log(tesx)
     setInputSearch('')
+
+    await axios.get(API_GitHub+''+tesx)
+    .then(response => {
+      if (response.data) {
+        console.log(response.data);
+      }
+    })
+    .catch(error => {
+      console.log(error.response?.data?.message);
+    });
   }
 
   return (
@@ -26,6 +40,9 @@ export default function Home() {
       <Header>
         <NameApp>devFinder</NameApp>
         <InputGroup>
+          <IconView>
+            <Ionicons name='search' size={18} color={colors.icon_Search_Blue}/>
+          </IconView>
           <InputUsernameSearch
             placeholder='Search GitHub username…'
             placeholderTextColor={colors.text_White}
@@ -37,7 +54,6 @@ export default function Home() {
           />
         </InputGroup>
       </Header>
-
       <Body>
         <BodySection>
           <Info_Component
@@ -46,7 +62,6 @@ export default function Home() {
         </BodySection>
       </Body>
     </Container>
-    
   )
 }
  
