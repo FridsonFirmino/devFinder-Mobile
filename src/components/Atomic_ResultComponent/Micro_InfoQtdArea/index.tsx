@@ -7,14 +7,14 @@ import {
 
 interface props{
   name: string
-  number: string
+  number: Number
 }
 
 export function InfoQtd({ name, number }:props) {
   return (
         <Container>
             <Name>{name}</Name>
-            <Number>{number}</Number>
+            <Number>{String(number)}</Number>
         </Container>
   );
 }

@@ -20,6 +20,12 @@ export const Header = styled.View`
     gap: 10px;
 `;
 
+export const UserImage = styled.Image`
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+`;
+
 export const UserDescriptio = styled.View`
     width: 60%;
     height: 100%;

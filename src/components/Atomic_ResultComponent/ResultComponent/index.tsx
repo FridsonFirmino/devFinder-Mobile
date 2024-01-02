@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from "react-native";
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { 
     Container,
@@ -11,81 +10,77 @@ import {
     BioArea,
     Bio,
     QtdInformationArea,
-    LinksArea
+    LinksArea,
+    UserImage
  } from './styled';
 import { InfoQtd } from '../Micro_InfoQtdArea';
 import { Links } from '../Micro_Link';
+import { githubData } from '../../../uteis/api';
 
-const Avatardd = require('../../../../assets/Oval.png') 
-const Location = require('../../../../assets/003-pin.png') 
-const building = require('../../../../assets/001-office-building.png') 
-const Twitter = require('../../../../assets/004-twitter.png') 
-const Group = require('../../../../assets/Group33.png') 
+export interface apiPropsUserRender {
+    avatar: githubData['avatar_url']
+    name: githubData['name']
+    username: githubData['login']
+    joined: githubData['created_at']
+    bio: githubData['bio']
+    qtdRepo: githubData['public_repos']
+    qtdFollowers: githubData['followers']
+    qtdFollowing: githubData['following']
+    location: githubData['location']
+    githubURL: githubData['html_url']
+    twitterUser: githubData['twitter_username']
+    organization: githubData['company']
+}
 
-export function ResultComponent() {
+
+export function ResultComponent({ avatar, bio, githubURL, joined, location, name, organization, qtdFollowers, qtdFollowing, qtdRepo, twitterUser, username}:apiPropsUserRender) {
   return (
     <Container>
         <Header>
-            <Image
-                source={Avatardd}
+            <UserImage
+                source={{uri:String(avatar)}}
             />
             <UserDescriptio>
-                <Name>Fridson Firmino</Name>
-                <UserName>@fridsonfirmino</UserName>
-                <JoinedData>Joined 25 Jan 2011</JoinedData>
+                <Name>{name}</Name>
+                <UserName>@{username}</UserName>
+                <JoinedData>{joined}</JoinedData>
             </UserDescriptio>
         </Header>
         <BioArea>
-            <Bio>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</Bio>
+            <Bio>{bio}</Bio>
         </BioArea>
         <QtdInformationArea>
             <InfoQtd
                 name='Repos'
-                number='8'
+                number={qtdRepo}
             />
             <InfoQtd
                 name='Followers'
-                number='3938'
+                number={qtdFollowers ?? 0}
             />
             <InfoQtd
                 name='Following'
-                number='9'
+                number={qtdFollowing ?? 0}
             />
         </QtdInformationArea>
         <LinksArea>
             <Links 
                 icon={<Ionicons name='location' size={20} color={'#ffff'}/>}
-                link='San Francisco'
+                link={location}
             />
             <Links 
                 icon={<Ionicons name='link' size={20} color={'#ffff'}/>}
-                link='https://github.blog'
+                link={githubURL}
             />
             <Links 
                 icon={<Ionicons name='logo-twitter' size={20} color={'#ffff'}/>}
-                link='Not Available'
-            />
-            <Links 
-                icon={<Ionicons name='logo-facebook' size={20} color={'#ffff'}/>}
-                link='Not Available'
-            />
-            <Links 
-                icon={<Ionicons name='logo-instagram' size={20} color={'#ffff'}/>}
-                link='Not Available'
-            />
-            <Links 
-                icon={<Ionicons name='logo-linkedin' size={20} color={'#ffff'}/>}
-                link='Not Available'
+                link={twitterUser}
             />
             <Links 
                 icon={<MaterialCommunityIcons name='office-building-marker' size={20} color={'#ffff'}/>}
-                link='@github'
+                link={organization}
             />
-            
-            
         </LinksArea>
-        
-        
     </Container>
   );
 }
