@@ -63,7 +63,7 @@ export const Bio = styled.Text`
 `;
 
 
-export const InfoQtdArea = styled.View`
+export const QtdInformationArea = styled.View`
     width: 90%;
     height: 15%;
     border-radius: 20px;
@@ -73,5 +73,12 @@ export const InfoQtdArea = styled.View`
     justify-content: center;
     flex-direction: row;
     gap: 10px;
+`;
+
+export const LinksArea = styled.View`
+    width: 90%;
+    height: 35%;
+    background-color: ${props => props.theme.bg_Primary};
+    align-self: center;
     margin-top: 10px;
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    RepoArea,
+    Container,
     Name,
     Number,
  } from './styled';
@@ -12,9 +12,9 @@ interface props{
 
 export function InfoQtd({ name, number }:props) {
   return (
-        <RepoArea>
+        <Container>
             <Name>{name}</Name>
             <Number>{number}</Number>
-        </RepoArea>
+        </Container>
   );
 }

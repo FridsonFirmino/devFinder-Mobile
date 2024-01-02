@@ -9,7 +9,8 @@ import {
     JoinedData,
     BioArea,
     Bio,
-    InfoQtdArea
+    QtdInformationArea,
+    LinksArea
  } from './styled';
 import { InfoQtd } from '../Micro_InfoQtdArea';
 
@@ -28,11 +29,10 @@ export function ResultComponent() {
                 <JoinedData>Joined 25 Jan 2011</JoinedData>
             </UserDescriptio>
         </Header>
-
         <BioArea>
             <Bio>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</Bio>
         </BioArea>
-        <InfoQtdArea>
+        <QtdInformationArea>
             <InfoQtd
                 name='Repos'
                 number='8'
@@ -45,8 +45,9 @@ export function ResultComponent() {
                 name='Following'
                 number='9'
             />
-
-        </InfoQtdArea>
+        </QtdInformationArea>
+        <LinksArea>
+        </LinksArea>
         
         
     </Container>

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const RepoArea = styled.View`
+export const Container = styled.View`
     width: 25%;
     height: 80%;
     border-radius: 20px;
