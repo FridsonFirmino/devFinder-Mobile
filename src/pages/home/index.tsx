@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { ActivityIndicator, Keyboard, TouchableWithoutFeedback } from "react-native";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Toast from 'react-native-toast-message';
 import axios from 'axios';
 import { 
   Container, 
   NameApp, 
-  Header, 
-  Body, 
   InputGroup, 
   InputUsernameSearch,
   BodySection,
@@ -57,54 +56,52 @@ export default function Home() {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    <Container>
-      <Header>
-        <NameApp>devFinder</NameApp>
-        <InputGroup>
-          <IconView>
-            <Ionicons name='search' size={18} color={colors.icon_Search_Blue}/>
-          </IconView>
-          <InputUsernameSearch
-            placeholder='Search GitHub username…'
-            placeholderTextColor={colors.text_White}
-            value={inputSearch.toLocaleLowerCase()}
-            onChangeText={(e) => setInputSearch(e)}
-          />
-          <SearchButton 
-            enableButton={isLoading ? true : false}
-            onPress={() => handlerRequestUserData(inputSearch)}
-          />
-        </InputGroup>
-      </Header>
-      
-      <Body>
-        <BodySection>
-          {isLoading ?
-            (
-              <ActivityIndicator color={colors.text_Blue}/>
-            )
-            :
-            (
-              <ResultComponent 
-                avatar={apiData?.avatar_url ?? AvatarNotFound}
-                bio={apiData?.bio ?? 'This profile has no bio'}
-                name={apiData?.name ?? 'Has no name'}
-                username={apiData?.login  ?? 'not found'}
-                joined={new Date(apiData?.created_at ?? '')}
-                qtdRepo={apiData?.public_repos  ?? 0}
-                qtdFollowers={apiData?.followers ?? 0}
-                qtdFollowing={apiData?.following ?? 0}
-                location={apiData?.location  ?? 'Has no location'}
-                githubURL={apiData?.html_url  ?? 'Has no github link'}
-                twitterUser={apiData?.twitter_username  ?? 'Not Available'}
-                organization={apiData?.company  ?? 'Has no company'}
-              />
-            )
-          }
-          
-        </BodySection>
-      </Body>
-    </Container>
+      <Container>
+        <KeyboardAwareScrollView>
+          <NameApp>devFinder</NameApp>
+          <InputGroup>
+            <IconView>
+              <Ionicons name='search' size={18} color={colors.icon_Search_Blue}/>
+            </IconView>
+            <InputUsernameSearch
+              placeholder='Search GitHub username…'
+              placeholderTextColor={colors.text_White}
+              value={inputSearch.toLocaleLowerCase()}
+              onChangeText={(e) => setInputSearch(e)}
+
+            />
+            <SearchButton 
+              enableButton={isLoading ? true : false}
+              onPress={() => handlerRequestUserData(inputSearch)}
+            />
+          </InputGroup>
+          <BodySection>
+            {isLoading ?
+              (
+                <ActivityIndicator color={colors.text_Blue}/>
+              )
+              :
+              (
+                <ResultComponent 
+                  avatar={apiData?.avatar_url ?? AvatarNotFound}
+                  bio={apiData?.bio ?? 'This profile has no bio'}
+                  name={apiData?.name ?? 'Has no name'}
+                  username={apiData?.login  ?? 'not found'}
+                  joined={new Date(apiData?.created_at ?? '')}
+                  qtdRepo={apiData?.public_repos  ?? 0}
+                  qtdFollowers={apiData?.followers ?? 0}
+                  qtdFollowing={apiData?.following ?? 0}
+                  location={apiData?.location  ?? 'Has no location'}
+                  githubURL={apiData?.html_url  ?? 'Has no github link'}
+                  twitterUser={apiData?.twitter_username  ?? 'Not Available'}
+                  organization={apiData?.company  ?? 'Has no company'}
+                />
+              )
+            }
+            
+          </BodySection>
+        </KeyboardAwareScrollView>
+      </Container>
     </TouchableWithoutFeedback>
   )
 }

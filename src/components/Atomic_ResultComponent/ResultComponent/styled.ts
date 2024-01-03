@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     margin: 5px;
     border-radius: 20px;
     background-color: ${props => props.theme.bg_Secundary};
+    
 `;
 
 export const Header = styled.View`
@@ -56,6 +57,7 @@ export const JoinedData = styled.Text`
 export const BioArea = styled.View`
     width: 90%;
     height: 18%;
+    margin-top: 5px;
     background-color: ${props => props.theme.bg_Secundary};
     align-self: center;
     margin-bottom: 10px;

@@ -2,18 +2,9 @@ import React from "react";
 import styled from "styled-components/native";
 
 export const Container = styled.SafeAreaView`
-    width: 100%;
-    height: 100%;
-    background-color: ${props => props.theme.bg_Primary};
-    align-items: center;
-`
-
-export const Header = styled.View`
-    width: 100%;
-    height: 25%;
+    flex: 1;
     background-color: ${props => props.theme.bg_Primary};
 `
-
 export const NameApp = styled.Text`
     margin-top: 15%;
     margin-left: 5%;
@@ -24,14 +15,15 @@ export const NameApp = styled.Text`
 
 export const InputGroup = styled.View`
     width: 90%;
-    height: 27%;
+    height: 8%;
     margin-top: 5%;
-    margin-left: 5%;
+    margin-bottom: 2%;
     border-radius: 15px;
     background-color: ${props => props.theme.bg_Secundary};
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    align-self: center;
 `
 export const IconView = styled.View`
     width: 25px;
@@ -51,21 +43,11 @@ export const InputUsernameSearch = styled.TextInput`
     color: ${props => props.theme.text_White};;
 `
 
-export const Body = styled.View`
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    background-color: ${props => props.theme.bg_Primary};
-`
-
 export const BodySection = styled.View`
-    width: 90%;
-    height: 72%;
-    margin: 5px;
-    border-radius: 20px;
-    background-color: ${props => props.theme.bg_Secundary};
+    width: 100%;
+    height: 530px;
     align-items: center;
-    justify-content: center;
-    position: fixed;
+    background-color: red;
+    background-color: ${props => props.theme.bg_Primary};
 `
 
