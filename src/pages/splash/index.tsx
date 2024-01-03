@@ -9,7 +9,11 @@ export function SplashScreen() {
     <Container>
         <Image source={imgApp}/>
         <AppName>devFinder</AppName>
-        <ActivityIndicator size={"small"} color={'#0079FF'}/>
+        <ActivityIndicator 
+          size={"small"} 
+          color={'#0079FF'}
+          animating={true}
+        />
     </Container>
   );
 }

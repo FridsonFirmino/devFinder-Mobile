@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ActivityIndicator } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
+import Toast from 'react-native-toast-message';
 import axios from 'axios';
 import { 
   Container, 
@@ -39,12 +40,19 @@ export default function Home() {
       }
     })
     .catch(error => {
+      if (error.response?.data?.message){
+        Toast.show({
+          type: "info",
+          text1: 'SORRY',
+          text2: 'GitHub user not found...',
+          visibilityTime: 10000,
+        })
+      }
       console.log(error.response?.data?.message);
     })
     .finally(() => {
       setIsLoading(false)
-    })
-    ;
+    });
   }
 
   return (

@@ -1,8 +1,10 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components'
+import Toast from "react-native-toast-message";
 
 import { colors } from './src/uteis/colors'
+import { toastConfig } from "./src/uteis/toastMessageConfig";
 import Home from './src/pages/home'
 
 import {
@@ -29,8 +31,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={colors}>
-      <Home/>
-      <StatusBar style="light" />
+        <Home/>
+        <Toast config={toastConfig} position="top" />
+        <StatusBar style="light" />
     </ThemeProvider>
   );
 }
