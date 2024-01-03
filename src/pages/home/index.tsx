@@ -88,7 +88,7 @@ export default function Home() {
                 bio={apiData?.bio ?? 'This profile has no bio'}
                 name={apiData?.name ?? 'Has no name'}
                 username={apiData?.login  ?? 'not found'}
-                joined={apiData?.created_at}
+                joined={new Date(apiData?.created_at ?? '')}
                 qtdRepo={apiData?.public_repos  ?? 0}
                 qtdFollowers={apiData?.followers ?? 0}
                 qtdFollowing={apiData?.following ?? 0}
