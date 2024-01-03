@@ -16,10 +16,9 @@ import {
 import { colors } from '../../uteis/colors';
 import { API_GitHub, githubData } from '../../uteis/api';
 import  SearchButton  from '../../components/SearchButton';
-import  Info_Component from '../../components/Info_Component';
 import { ResultComponent } from '../../components/Atomic_ResultComponent/ResultComponent';
 
-const Avatardd = require('../../../assets/Oval.png') 
+const AvatarNotFound = 'asset:/Oval.png'
 
 export default function Home() {
   const [inputSearch, setInputSearch] = useState('')
@@ -77,7 +76,7 @@ export default function Home() {
             :
             (
               <ResultComponent 
-                avatar={apiData?.avatar_url ?? Avatardd}
+                avatar={apiData?.avatar_url ?? AvatarNotFound}
                 bio={apiData?.bio ?? 'This profile has no bio'}
                 name={apiData?.name  ?? 'Has no name'}
                 username={apiData?.login  ?? 'not found'}
