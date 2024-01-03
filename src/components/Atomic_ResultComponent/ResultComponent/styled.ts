@@ -58,7 +58,7 @@ export const BioArea = styled.View`
     height: 18%;
     background-color: ${props => props.theme.bg_Secundary};
     align-self: center;
-    margin-top: 10px;
+    margin-bottom: 10px;
 `;
 
 export const Bio = styled.Text`

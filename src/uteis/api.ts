@@ -17,6 +17,31 @@ export const apiProps = ({ user }:propUser) => ({
     twitter: user.twitter_username ?? 'Not Available'
   })*/
 
+  export const enShortText = (text: string, size = 15, end = '...') =>
+  `${text?.slice(0, size)}${text?.length > size ? end : ''}`
+
+  export const formatDate = (date: Date) =>
+    new Date(date).toLocaleString("en-US", {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+  export interface apiPropsUserRender {
+    avatar: githubData['avatar_url']
+    name: githubData['name']
+    username: githubData['login']
+    joined: githubData['created_at']
+    bio: githubData['bio']
+    qtdRepo: githubData['public_repos']
+    qtdFollowers: githubData['followers']
+    qtdFollowing: githubData['following']
+    location: githubData['location']
+    githubURL: githubData['html_url']
+    twitterUser: githubData['twitter_username']
+    organization: githubData['company']
+}
+
   export interface githubData{
     login: string 
     id: string
@@ -47,6 +72,6 @@ export const apiProps = ({ user }:propUser) => ({
     public_gists: string      
     followers: Number      
     following: Number    
-    created_at: string       
+    created_at: Date   
     updated_at: string  
   }

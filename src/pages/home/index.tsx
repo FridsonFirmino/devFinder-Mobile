@@ -19,7 +19,7 @@ import { API_GitHub, githubData } from '../../uteis/api';
 import  SearchButton  from '../../components/SearchButton';
 import { ResultComponent } from '../../components/Atomic_ResultComponent/ResultComponent';
 
-const AvatarNotFound = 'asset:/Oval.png'
+const AvatarNotFound = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59FI47FE02xesR8DhmzX56t2ENpAcWXafvw&usqp=CAU"
 
 export default function Home() {
   const [inputSearch, setInputSearch] = useState('')
@@ -44,7 +44,7 @@ export default function Home() {
         Toast.show({
           type: "info",
           text1: 'SORRY',
-          text2: 'GitHub user not found...',
+          text2: 'GitHub user not found!',
           visibilityTime: 10000,
         })
       }
@@ -86,9 +86,9 @@ export default function Home() {
               <ResultComponent 
                 avatar={apiData?.avatar_url ?? AvatarNotFound}
                 bio={apiData?.bio ?? 'This profile has no bio'}
-                name={apiData?.name  ?? 'Has no name'}
+                name={apiData?.name ?? 'Has no name'}
                 username={apiData?.login  ?? 'not found'}
-                joined={apiData?.created_at  ?? 'not date'}
+                joined={apiData?.created_at}
                 qtdRepo={apiData?.public_repos  ?? 0}
                 qtdFollowers={apiData?.followers ?? 0}
                 qtdFollowing={apiData?.following ?? 0}

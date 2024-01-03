@@ -15,23 +15,7 @@ import {
  } from './styled';
 import { InfoQtd } from '../Micro_InfoQtdArea';
 import { Links } from '../Micro_Link';
-import { githubData } from '../../../uteis/api';
-
-export interface apiPropsUserRender {
-    avatar: githubData['avatar_url']
-    name: githubData['name']
-    username: githubData['login']
-    joined: githubData['created_at']
-    bio: githubData['bio']
-    qtdRepo: githubData['public_repos']
-    qtdFollowers: githubData['followers']
-    qtdFollowing: githubData['following']
-    location: githubData['location']
-    githubURL: githubData['html_url']
-    twitterUser: githubData['twitter_username']
-    organization: githubData['company']
-}
-
+import { apiPropsUserRender, enShortText, formatDate } from '../../../uteis/api';
 
 export function ResultComponent({ avatar, bio, githubURL, joined, location, name, organization, qtdFollowers, qtdFollowing, qtdRepo, twitterUser, username}:apiPropsUserRender) {
   return (
@@ -41,9 +25,9 @@ export function ResultComponent({ avatar, bio, githubURL, joined, location, name
                 source={{uri:String(avatar)}}
             />
             <UserDescriptio>
-                <Name>{name}</Name>
+                <Name>{enShortText(name)}</Name>
                 <UserName>@{username}</UserName>
-                <JoinedData>{joined}</JoinedData>
+                <JoinedData>{formatDate(joined)}</JoinedData>
             </UserDescriptio>
         </Header>
         <BioArea>
