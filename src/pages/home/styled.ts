@@ -25,7 +25,8 @@ export const NameApp = styled.Text`
 export const InputGroup = styled.View`
     width: 90%;
     height: 27%;
-    margin: 5%;
+    margin-top: 5%;
+    margin-left: 5%;
     border-radius: 15px;
     background-color: ${props => props.theme.bg_Secundary};
     flex-direction: row;
@@ -53,8 +54,8 @@ export const InputUsernameSearch = styled.TextInput`
 export const Body = styled.View`
     width: 100%;
     height: 100%;
-    background-color: ${props => props.theme.bg_Primary};
     align-items: center;
+    background-color: ${props => props.theme.bg_Primary};
 `
 
 export const BodySection = styled.View`
@@ -65,5 +66,6 @@ export const BodySection = styled.View`
     background-color: ${props => props.theme.bg_Secundary};
     align-items: center;
     justify-content: center;
+    position: fixed;
 `
 

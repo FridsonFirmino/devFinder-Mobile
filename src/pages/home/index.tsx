@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ActivityIndicator } from "react-native";
+import { ActivityIndicator, Keyboard, TouchableWithoutFeedback } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Toast from 'react-native-toast-message';
 import axios from 'axios';
@@ -19,7 +19,7 @@ import { API_GitHub, githubData } from '../../uteis/api';
 import  SearchButton  from '../../components/SearchButton';
 import { ResultComponent } from '../../components/Atomic_ResultComponent/ResultComponent';
 
-const AvatarNotFound = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59FI47FE02xesR8DhmzX56t2ENpAcWXafvw&usqp=CAU"
+const AvatarNotFound = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59FI47FE02xesR8DhmzX56t2ENpAcWXafvw&usqp=CAU";
 
 export default function Home() {
   const [inputSearch, setInputSearch] = useState('')
@@ -56,6 +56,7 @@ export default function Home() {
   }
 
   return (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     <Container>
       <Header>
         <NameApp>devFinder</NameApp>
@@ -75,6 +76,7 @@ export default function Home() {
           />
         </InputGroup>
       </Header>
+      
       <Body>
         <BodySection>
           {isLoading ?
@@ -103,6 +105,7 @@ export default function Home() {
         </BodySection>
       </Body>
     </Container>
+    </TouchableWithoutFeedback>
   )
 }
  
