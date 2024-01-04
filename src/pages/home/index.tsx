@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ActivityIndicator, Keyboard, TouchableWithoutFeedback } from "react-native";
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Toast from 'react-native-toast-message';
@@ -10,7 +10,8 @@ import {
   InputGroup, 
   InputUsernameSearch,
   BodySection,
-  IconView
+  IconView,
+  Loading
 } from './styled';
 
 import { colors } from '../../uteis/colors';
@@ -44,7 +45,7 @@ export default function Home() {
           type: "info",
           text1: 'SORRY',
           text2: 'GitHub user not found!',
-          visibilityTime: 10000,
+          visibilityTime: 6000,
         })
       }
       console.log(error.response?.data?.message);
@@ -78,7 +79,7 @@ export default function Home() {
           <BodySection>
             {isLoading ?
               (
-                <ActivityIndicator color={colors.text_Blue}/>
+                <Loading color={colors.text_Blue}/>
               )
               :
               (

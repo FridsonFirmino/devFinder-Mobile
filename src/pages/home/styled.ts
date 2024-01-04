@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/native";
+import { colors } from "../../uteis/colors";
 
 export const Container = styled.SafeAreaView`
     flex: 1;
@@ -51,3 +52,10 @@ export const BodySection = styled.View`
     background-color: ${props => props.theme.bg_Primary};
 `
 
+export const Loading = styled.ActivityIndicator.attrs({
+    color: colors.btn_Primary,
+    size: "large"
+})`
+    margin-top: 55%;
+    align-self: center;
+`

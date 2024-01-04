@@ -27,7 +27,7 @@ export function ResultComponent({ avatar, bio, githubURL, joined, location, name
             <UserDescriptio>
                 <Name>{enShortText(name)}</Name>
                 <UserName>@{username}</UserName>
-                <JoinedData>{formatDate(joined)}</JoinedData>
+                <JoinedData>Joined {formatDate(joined)}</JoinedData>
             </UserDescriptio>
         </Header>
         <BioArea>
