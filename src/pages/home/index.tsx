@@ -35,7 +35,7 @@ export default function Home() {
     await axios.get(API_GitHub+''+user)
     .then(response => {
       if (response.data) {
-        console.log(response.data?.avatar_url)
+        console.log(response.data?.twitter)
         setApiData(response.data);
       }
     })

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Linking } from 'react-native'
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 import { 
     Container,
@@ -15,6 +16,7 @@ import {
  } from './styled';
 import { InfoQtd } from '../Micro_InfoQtdArea';
 import { Links } from '../Micro_Link';
+import { GitHub_Link } from '../Micro_Github_links';
 import { apiPropsUserRender, enShortText, formatDate } from '../../../uteis/api';
 
 export function ResultComponent({ avatar, bio, githubURL, joined, location, name, organization, qtdFollowers, qtdFollowing, qtdRepo, twitterUser, username}:apiPropsUserRender) {
@@ -40,11 +42,11 @@ export function ResultComponent({ avatar, bio, githubURL, joined, location, name
             />
             <InfoQtd
                 name='Followers'
-                number={qtdFollowers ?? 0}
+                number={qtdFollowers}
             />
             <InfoQtd
                 name='Following'
-                number={qtdFollowing ?? 0}
+                number={qtdFollowing}
             />
         </QtdInformationArea>
         <LinksArea>
@@ -52,9 +54,10 @@ export function ResultComponent({ avatar, bio, githubURL, joined, location, name
                 icon={<Ionicons name='location' size={20} color={'#ffff'}/>}
                 link={location}
             />
-            <Links 
+            <GitHub_Link 
                 icon={<Ionicons name='link' size={20} color={'#ffff'}/>}
-                link={githubURL}
+                link={githubURL.includes('http') ? 'My GITHUB Link!' : githubURL}
+                onPress={githubURL.includes('http') ? async () => await Linking.openURL(githubURL) : ()=>{alert('no link')}}
             />
             <Links 
                 icon={<Ionicons name='logo-twitter' size={20} color={'#ffff'}/>}
