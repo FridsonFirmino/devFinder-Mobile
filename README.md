@@ -87,7 +87,7 @@ Inicie o servidor
  
 
  
-## Autore
+## Autor
 
 - [Fridson Firmino github](https://www.github.com/fridsonfirmino)
 - [Fridson Firmino linkedin](https://www.linkedin.com/in/fridson-firmino-611046225)
