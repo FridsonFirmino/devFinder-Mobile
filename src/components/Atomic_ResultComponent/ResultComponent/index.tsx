@@ -56,7 +56,7 @@ export function ResultComponent({ avatar, bio, githubURL, joined, location, name
             />
             <GitHub_Link 
                 icon={<Ionicons name='link' size={20} color={'#ffff'}/>}
-                link={githubURL.includes('http') ? 'My GITHUB Link!' : githubURL}
+                link={githubURL.includes('http') ? 'Visit My github' : githubURL}
                 onPress={githubURL.includes('http') ? async () => await Linking.openURL(githubURL) : ()=>{alert('no link')}}
             />
             <Links 
