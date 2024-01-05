@@ -38,7 +38,7 @@ export const From = styled.Text`
 `;
 
 export const FirmaName = styled.Text`
-    font-size: 16px;
+    font-size: 14px;
     font-family: monospace;
     font-weight: bold;
     color: white;

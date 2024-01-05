@@ -16,10 +16,9 @@ export function SplashScreen() {
             animating={true}
             />
         </ContainerLoding>
-
         <FirmaArea>
           <From>From</From>
-          <FirmaName>ScriptZone</FirmaName>
+          <FirmaName>Fridson Firmino</FirmaName>
         </FirmaArea>
     </Container>
   );

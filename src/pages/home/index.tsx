@@ -11,7 +11,7 @@ import {
   InputUsernameSearch,
   BodySection,
   IconView,
-  Loading
+  Loading,
 } from './styled';
 
 import { colors } from '../../uteis/colors';

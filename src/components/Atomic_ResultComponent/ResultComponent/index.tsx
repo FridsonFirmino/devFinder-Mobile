@@ -55,8 +55,8 @@ export function ResultComponent({ avatar, bio, githubURL, joined, location, name
                 link={location}
             />
             <GitHub_Link 
-                icon={<Ionicons name='link' size={20} color={'#ffff'}/>}
-                link={githubURL.includes('http') ? 'Visit My github' : githubURL}
+                icon={<Ionicons name='logo-github' size={20} color={'#ffff'}/>}
+                link={githubURL.includes('http') ? `Visit ${name}on github` : githubURL}
                 onPress={githubURL.includes('http') ? async () => await Linking.openURL(githubURL) : ()=>{alert('no link')}}
             />
             <Links 
@@ -66,6 +66,11 @@ export function ResultComponent({ avatar, bio, githubURL, joined, location, name
             <Links 
                 icon={<MaterialCommunityIcons name='office-building-marker' size={20} color={'#ffff'}/>}
                 link={organization}
+            />
+            <GitHub_Link 
+                icon={<Ionicons name='help' size={20} color={'#ffff'}/>}
+                link={"For Support Contact us"}
+                onPress={async () => await Linking.openURL("https://github.com/FridsonFirmino")}
             />
         </LinksArea>
     </Container>

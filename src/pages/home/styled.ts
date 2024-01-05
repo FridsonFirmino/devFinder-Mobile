@@ -59,3 +59,4 @@ export const Loading = styled.ActivityIndicator.attrs({
     margin-top: 55%;
     align-self: center;
 `
+
